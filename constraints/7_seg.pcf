@@ -1,0 +1,28 @@
+# this is the physical constraint for seg_decoder.v
+
+#set display_combo and clock
+set_io clk P7
+set_io switch_seg P8
+
+# io_button
+set_io io_button[0] D1
+set_io io_button[1] E4
+set_io io_button[2] E1
+set_io io_button[3] F4
+set_io io_button[4] H4
+
+# io_segment
+set_io io_segment[0] B1
+set_io io_segment[1] C1
+set_io io_segment[2] C3
+set_io io_segment[3] D4
+set_io io_segment[4] A1
+set_io io_segment[5] D3
+set_io io_segment[6] A3
+set_io io_segment[7] A2
+
+# Seven-segment 4 digit select
+set_io io_select[0] H3
+set_io io_select[1] J1
+set_io io_select[2] F3
+set_io io_select[3] G3

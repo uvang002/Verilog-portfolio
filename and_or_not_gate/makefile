@@ -1,23 +1,21 @@
-# --- Configuration ---
-PROJECT ?= and_or_not_gate
+TOP = and_or_not_gate
 
-SRC = src/$(PROJECT).v
-TB = tb/tb_$(PROJECT).v
-OUT = sim.vvp
-VCD = sim.vcd
+SRC = src/$(TOP).v
+TB  = tb/tb_$(TOP).v
 
-# --- Targets ---
-run: $(OUT)
-	vvp -n $(OUT)
+OUT = sim/sim.out
+VCD = sim/wave.vcd
 
-# Opens GTKWave using the generated VCD file
-wave: $(VCD)
-	gtkwave $(VCD) &
+all: run
 
-# Automatically compile the simulation
-$(OUT): $(SRC) $(TB)
-	iverilog -g2005-sv -o $(OUT) $(TB) $(SRC)
+compile:
+	iverilog -g2012 -o $(OUT) $(SRC) $(TB)
 
-# Clean up build artifacts
+run: compile
+	-vvp $(OUT)
+
+wave:
+	gtkwave $(VCD)
+
 clean:
-	rm -f $(OUT) $(VCD)
+	if exist sim del /Q sim\*

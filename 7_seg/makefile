@@ -1,6 +1,24 @@
-run:
-	iverilog -g2005-sv -o sim.vvp tb/tb_7_seg.v src/7_seg.v
-	vvp -n sim.vvp
+TOP = and_or_not_gate
+
+SRC = src/$(TOP).v
+TB  = tb/tb_$(TOP).v
+
+OUT = sim/sim.out
+VCD = sim/wave.vcd
+
+all: run
+
+sim:
+	if not exist sim mkdir sim
+
+compile: sim
+	iverilog -g2012 -o $(OUT) $(SRC) $(TB)
+
+run: compile
+	vvp $(OUT)
+
+wave:
+	gtkwave $(VCD)
 
 clean:
-	rm -f sim.vvp sim.vcd
+	if exist sim del /Q sim\*

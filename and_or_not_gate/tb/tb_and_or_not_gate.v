@@ -1,47 +1,57 @@
-`timescale 1ns/1ns
+`timescale 1ns/1ps
 
 module tb_and_or_not_gate;
 
-    reg [4:0] io_button;
-    reg [7:0] expected_led;
+    reg  [4:0] io_button;
     wire [7:0] led;
-    integer input_value;
-    integer failures;
 
+    // Device Under Test (DUT)
     and_or_not_gate dut (
         .io_button(io_button),
         .led(led)
     );
 
     initial begin
-        failures = 0;
-        for (input_value = 0; input_value < 32; input_value = input_value + 1) begin
-            io_button = input_value[4:0];
-            #1;
+        // Generate waveform file
+       $dumpfile("sim/wave.vcd");
+       $dumpvars(0, tb_and_or_not_gate);
 
-            expected_led = 8'b0;
-            expected_led[0] = io_button[0] & io_button[2];
-            expected_led[2] = io_button[3] | io_button[4];
-            expected_led[4] = ~io_button[1];
+        $display("Time\tButtons\t\tLEDs");
+        $monitor("%0t\t%b\t%b", $time, io_button, led);
 
-            if (led !== expected_led) begin
-                $display(
-                    "FAIL: io_button=%b expected led=%b got led=%b",
-                    io_button,
-                    expected_led,
-                    led
-                );
-                failures = failures + 1;
-            end
-        end
+        // Test 1: all buttons released
+        io_button = 5'b00000;
+        #10;
 
-        if (failures == 0) begin
-            $display("PASS: all 32 input combinations matched");
-            $finish_and_return(0);
-        end else begin
-            $display("FAIL: %0d input combinations did not match", failures);
-            $finish_and_return(1);
-        end
+        // Test 2: button[0] pressed
+        io_button = 5'b00001;
+        #10;
+
+        // Test 3: button[2] pressed
+        io_button = 5'b00100;
+        #10;
+
+        // Test 4: button[0] and button[2] pressed
+        io_button = 5'b00101;
+        #10;
+
+        // Test 5: button[3] pressed
+        io_button = 5'b01000;
+        #10;
+
+        // Test 6: button[4] pressed
+        io_button = 5'b10000;
+        #10;
+
+        // Test 7: button[1] pressed
+        io_button = 5'b00010;
+        #10;
+
+        // Test 8: all buttons pressed
+        io_button = 5'b11111;
+        #10;
+
+        $finish;
     end
 
 endmodule

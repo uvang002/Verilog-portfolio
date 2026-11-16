@@ -1,0 +1,87 @@
+#! 
+:ivl_version "14.0 (devel)" "(s20260301-1055-ge6b789157-dirty)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\HDLTOO~1\OSS-CA~1\lib\ivl\system.vpi";
+:vpi_module "C:\HDLTOO~1\OSS-CA~1\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\HDLTOO~1\OSS-CA~1\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\HDLTOO~1\OSS-CA~1\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\HDLTOO~1\OSS-CA~1\lib\ivl\va_math.vpi";
+:vpi_module "C:\HDLTOO~1\OSS-CA~1\lib\ivl\v2009.vpi";
+S_000001cd6a6dbad0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000001cd6a69bfe0 .scope module, "tb_and_or_not_gate" "tb_and_or_not_gate" 3 3;
+ .timescale -9 -12;
+v000001cd6a6db2e0_0 .var "io_button", 4 0;
+v000001cd6a6db420_0 .net8 "led", 7 0, L_000001cd6a6dab60;  1 drivers, strength-aware
+S_000001cd6a69c180 .scope module, "dut" "and_or_not_gate" 3 9, 4 4 0, S_000001cd6a69bfe0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 5 "io_button";
+    .port_info 1 /OUTPUT 8 "led";
+L_000001cd6a699140 .functor AND 1, L_000001cd6a6db4c0, L_000001cd6a6db560, C4<1>, C4<1>;
+L_000001cd6a6db8c0 .functor OR 1, L_000001cd6a6da700, L_000001cd6a6da7a0, C4<0>, C4<0>;
+L_000001cd6a6e8870 .functor NOT 1, L_000001cd6a6da840, C4<0>, C4<0>, C4<0>;
+L_000001cd6a737c88 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000001cd6a6daf20_0 .net/2u *"_ivl_10", 0 0, L_000001cd6a737c88;  1 drivers
+v000001cd6a6dac00_0 .net *"_ivl_15", 0 0, L_000001cd6a6da700;  1 drivers
+v000001cd6a6da8e0_0 .net *"_ivl_17", 0 0, L_000001cd6a6da7a0;  1 drivers
+v000001cd6a6dafc0_0 .net *"_ivl_18", 0 0, L_000001cd6a6db8c0;  1 drivers
+L_000001cd6a737cd0 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000001cd6a6da980_0 .net/2u *"_ivl_22", 0 0, L_000001cd6a737cd0;  1 drivers
+v000001cd6a6db240_0 .net *"_ivl_27", 0 0, L_000001cd6a6da840;  1 drivers
+v000001cd6a6db100_0 .net *"_ivl_28", 0 0, L_000001cd6a6e8870;  1 drivers
+v000001cd6a6db060_0 .net *"_ivl_3", 0 0, L_000001cd6a6db4c0;  1 drivers
+L_000001cd6a737d18 .functor BUFT 1, C4<000>, C4<0>, C4<0>, C4<0>;
+v000001cd6a6dae80_0 .net/2u *"_ivl_33", 2 0, L_000001cd6a737d18;  1 drivers
+v000001cd6a6daa20_0 .net *"_ivl_5", 0 0, L_000001cd6a6db560;  1 drivers
+v000001cd6a6db380_0 .net *"_ivl_6", 0 0, L_000001cd6a699140;  1 drivers
+v000001cd6a6db1a0_0 .net "io_button", 4 0, v000001cd6a6db2e0_0;  1 drivers
+v000001cd6a6daac0_0 .net8 "led", 7 0, L_000001cd6a6dab60;  alias, 1 drivers, strength-aware
+L_000001cd6a6db4c0 .part v000001cd6a6db2e0_0, 0, 1;
+L_000001cd6a6db560 .part v000001cd6a6db2e0_0, 2, 1;
+L_000001cd6a6da700 .part v000001cd6a6db2e0_0, 3, 1;
+L_000001cd6a6da7a0 .part v000001cd6a6db2e0_0, 4, 1;
+L_000001cd6a6da840 .part v000001cd6a6db2e0_0, 1, 1;
+LS_000001cd6a6dab60_0_0 .concat8 [ 1 1 1 1], L_000001cd6a699140, L_000001cd6a737c88, L_000001cd6a6db8c0, L_000001cd6a737cd0;
+LS_000001cd6a6dab60_0_4 .concat8 [ 1 3 0 0], L_000001cd6a6e8870, L_000001cd6a737d18;
+L_000001cd6a6dab60 .concat8 [ 4 4 0 0], LS_000001cd6a6dab60_0_0, LS_000001cd6a6dab60_0_4;
+    .scope S_000001cd6a69bfe0;
+T_0 ;
+    %vpi_call/w 3 16 "$dumpfile", "sim/wave.vcd" {0 0 0};
+    %vpi_call/w 3 17 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001cd6a69bfe0 {0 0 0};
+    %vpi_call/w 3 19 "$display", "Time\011Buttons\011\011LEDs" {0 0 0};
+    %vpi_call/w 3 20 "$monitor", "%0t\011%b\011%b", $time, v000001cd6a6db2e0_0, v000001cd6a6db420_0 {0 0 0};
+    %pushi/vec4 0, 0, 5;
+    %store/vec4 v000001cd6a6db2e0_0, 0, 5;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 5;
+    %store/vec4 v000001cd6a6db2e0_0, 0, 5;
+    %delay 10000, 0;
+    %pushi/vec4 4, 0, 5;
+    %store/vec4 v000001cd6a6db2e0_0, 0, 5;
+    %delay 10000, 0;
+    %pushi/vec4 5, 0, 5;
+    %store/vec4 v000001cd6a6db2e0_0, 0, 5;
+    %delay 10000, 0;
+    %pushi/vec4 8, 0, 5;
+    %store/vec4 v000001cd6a6db2e0_0, 0, 5;
+    %delay 10000, 0;
+    %pushi/vec4 16, 0, 5;
+    %store/vec4 v000001cd6a6db2e0_0, 0, 5;
+    %delay 10000, 0;
+    %pushi/vec4 2, 0, 5;
+    %store/vec4 v000001cd6a6db2e0_0, 0, 5;
+    %delay 10000, 0;
+    %pushi/vec4 31, 0, 5;
+    %store/vec4 v000001cd6a6db2e0_0, 0, 5;
+    %delay 10000, 0;
+    %vpi_call/w 3 54 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "tb/tb_and_or_not_gate.v";
+    "src/and_or_not_gate.v";

@@ -1,5 +1,20 @@
+# Simulation output
 sim/
-*.vcd
+
+# Icarus Verilog
 *.out
 *.vvp
+
+# Waveforms
+*.vcd
+*.fst
+
+# GTKWave
 *.gtkw
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

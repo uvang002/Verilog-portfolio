@@ -1,6 +1,23 @@
+# Simulation output
+sim/
+doc/
+
+# Icarus Verilog
+*.out
+*.vvp
+
+# Waveforms
 *.vcd
-*.exe
-*.bin
-*.json
-*.asc
-*.txt
+*.fst
+*.lxt
+
+# GTKWave
+*.gtkw
+
+# VS Code workspace files
+.vscode/*
+!.vscode/settings.json
+
+# OS files
+.DS_Store
+Thumbs.db

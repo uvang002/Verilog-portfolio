@@ -1,0 +1,122 @@
+#! 
+:ivl_version "14.0 (devel)" "(s20260301-972-g5bbcab257-dirty)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\OSS-CA~1\lib\ivl\system.vpi";
+:vpi_module "C:\OSS-CA~1\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\OSS-CA~1\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\OSS-CA~1\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\OSS-CA~1\lib\ivl\va_math.vpi";
+:vpi_module "C:\OSS-CA~1\lib\ivl\v2009.vpi";
+S_000001a8a3a75470 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000001a8a3a75610 .scope module, "tb_and_or_not_gate" "tb_and_or_not_gate" 3 3;
+ .timescale -9 -9;
+v000001a8a3a82610_0 .var "expected_led", 7 0;
+v000001a8a3a82570_0 .var/i "failures", 31 0;
+v000001a8a3a82890_0 .var/i "input_value", 31 0;
+v000001a8a3a82930_0 .var "io_button", 4 0;
+v000001a8a3a82a70_0 .net8 "led", 7 0, L_000001a8a3b27460;  1 drivers, strength-aware
+S_000001a8a3a7a880 .scope module, "dut" "and_or_not_gate" 3 11, 4 4 0, S_000001a8a3a75610;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 5 "io_button";
+    .port_info 1 /OUTPUT 8 "led";
+L_000001a8a3a7b120 .functor AND 1, L_000001a8a3a82f70, L_000001a8a3a83010, C4<1>, C4<1>;
+L_000001a8a3a7b2e0 .functor OR 1, L_000001a8a3a830b0, L_000001a8a3b273c0, C4<0>, C4<0>;
+L_000001a8a3a7b3c0 .functor NOT 1, L_000001a8a3b276e0, C4<0>, C4<0>, C4<0>;
+L_000001a8a3addec8 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000001a8a3a83330_0 .net/2u *"_ivl_10", 0 0, L_000001a8a3addec8;  1 drivers
+v000001a8a3a831f0_0 .net *"_ivl_15", 0 0, L_000001a8a3a830b0;  1 drivers
+v000001a8a3a83150_0 .net *"_ivl_17", 0 0, L_000001a8a3b273c0;  1 drivers
+v000001a8a3a82d90_0 .net *"_ivl_18", 0 0, L_000001a8a3a7b2e0;  1 drivers
+L_000001a8a3addf10 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000001a8a3a829d0_0 .net/2u *"_ivl_22", 0 0, L_000001a8a3addf10;  1 drivers
+v000001a8a3a824d0_0 .net *"_ivl_27", 0 0, L_000001a8a3b276e0;  1 drivers
+v000001a8a3a82430_0 .net *"_ivl_28", 0 0, L_000001a8a3a7b3c0;  1 drivers
+v000001a8a3a826b0_0 .net *"_ivl_3", 0 0, L_000001a8a3a82f70;  1 drivers
+L_000001a8a3addf58 .functor BUFT 1, C4<000>, C4<0>, C4<0>, C4<0>;
+v000001a8a3a82750_0 .net/2u *"_ivl_33", 2 0, L_000001a8a3addf58;  1 drivers
+v000001a8a3a827f0_0 .net *"_ivl_5", 0 0, L_000001a8a3a83010;  1 drivers
+v000001a8a3a82cf0_0 .net *"_ivl_6", 0 0, L_000001a8a3a7b120;  1 drivers
+v000001a8a3a82bb0_0 .net "io_button", 4 0, v000001a8a3a82930_0;  1 drivers
+v000001a8a3a82ed0_0 .net8 "led", 7 0, L_000001a8a3b27460;  alias, 1 drivers, strength-aware
+L_000001a8a3a82f70 .part v000001a8a3a82930_0, 0, 1;
+L_000001a8a3a83010 .part v000001a8a3a82930_0, 2, 1;
+L_000001a8a3a830b0 .part v000001a8a3a82930_0, 3, 1;
+L_000001a8a3b273c0 .part v000001a8a3a82930_0, 4, 1;
+L_000001a8a3b276e0 .part v000001a8a3a82930_0, 1, 1;
+LS_000001a8a3b27460_0_0 .concat8 [ 1 1 1 1], L_000001a8a3a7b120, L_000001a8a3addec8, L_000001a8a3a7b2e0, L_000001a8a3addf10;
+LS_000001a8a3b27460_0_4 .concat8 [ 1 3 0 0], L_000001a8a3a7b3c0, L_000001a8a3addf58;
+L_000001a8a3b27460 .concat8 [ 4 4 0 0], LS_000001a8a3b27460_0_0, LS_000001a8a3b27460_0_4;
+    .scope S_000001a8a3a75610;
+T_0 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000001a8a3a82570_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000001a8a3a82890_0, 0, 32;
+T_0.0 ; Top of for-loop
+    %load/vec4 v000001a8a3a82890_0;
+    %cmpi/s 32, 0, 32;
+	  %jmp/0xz T_0.1, 5;
+    %load/vec4 v000001a8a3a82890_0;
+    %parti/s 5, 0, 2;
+    %store/vec4 v000001a8a3a82930_0, 0, 5;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v000001a8a3a82610_0, 0, 8;
+    %load/vec4 v000001a8a3a82930_0;
+    %parti/s 1, 0, 2;
+    %load/vec4 v000001a8a3a82930_0;
+    %parti/s 1, 2, 3;
+    %and;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000001a8a3a82610_0, 4, 1;
+    %load/vec4 v000001a8a3a82930_0;
+    %parti/s 1, 3, 3;
+    %load/vec4 v000001a8a3a82930_0;
+    %parti/s 1, 4, 4;
+    %or;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000001a8a3a82610_0, 4, 1;
+    %load/vec4 v000001a8a3a82930_0;
+    %parti/s 1, 1, 2;
+    %inv;
+    %ix/load 4, 4, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000001a8a3a82610_0, 4, 1;
+    %load/vec4 v000001a8a3a82a70_0;
+    %load/vec4 v000001a8a3a82610_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.3, 6;
+    %vpi_call/w 3 28 "$display", "FAIL: io_button=%b expected led=%b got led=%b", v000001a8a3a82930_0, v000001a8a3a82610_0, v000001a8a3a82a70_0 {0 0 0};
+    %load/vec4 v000001a8a3a82570_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000001a8a3a82570_0, 0, 32;
+T_0.3 ;
+T_0.2 ; for-loop step statement
+    %load/vec4 v000001a8a3a82890_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000001a8a3a82890_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ; for-loop exit label
+    %load/vec4 v000001a8a3a82570_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_0.5, 4;
+    %vpi_call/w 3 39 "$display", "PASS: all 32 input combinations matched" {0 0 0};
+    %vpi_call/w 3 40 "$finish_and_return", 32'sb00000000000000000000000000000000 {0 0 0};
+    %jmp T_0.6;
+T_0.5 ;
+    %vpi_call/w 3 42 "$display", "FAIL: %0d input combinations did not match", v000001a8a3a82570_0 {0 0 0};
+    %vpi_call/w 3 43 "$finish_and_return", 32'sb00000000000000000000000000000001 {0 0 0};
+T_0.6 ;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "tb/tb_and_or_not_gate.v";
+    "src/and_or_not_gate.v";

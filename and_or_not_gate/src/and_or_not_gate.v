@@ -3,7 +3,7 @@
 
 module and_or_not_gate (
     input  [4:0]  io_button,
-    output [7:0]  led,
+    output [7:0]  led
 
 );
 

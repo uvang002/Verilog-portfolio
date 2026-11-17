@@ -59,7 +59,7 @@ gtkwave --version
 make --version
 ```
 
-### Install Git (optional)
+### Install Git (optional for version control and GitHub)
 
 Verify installation:
 
@@ -110,13 +110,16 @@ module top_module_tb;
     reg a_tb;
     wire y_tb;
 
+    //Device Under Test (DUT)
     top_module dut (
         .a(a_tb),
         .y(y_tb)
     );
 
     initial begin
+        //Creates and save sim file as .vcd for gtkwave.
         $dumpfile("sim/wave.vcd");
+        //Specifies all signals in the testbench.
         $dumpvars(0, top_module_tb);
 
         a_tb = 0;
@@ -133,6 +136,7 @@ endmodule
 ### Standard Makefile
 
 **Note:** Commands in a Makefile must be indented with a TAB character, not spaces. 
+
 **Reminder:** Change 'project_name' to the name of your project.
 ```make
 TOP = project_name 
@@ -176,7 +180,7 @@ sim/
 
 ## Running Simulations
 
-Clean generated files:
+Clean previously generated sim files:
 
 ```cmd
 make clean
@@ -218,7 +222,7 @@ Verilog Source
 ## Verification Approach
 
 All projects are verified using testbenches written in Verilog.
-Simulation is used to verify functionality before synthesis or FPGA implementation.
+Simulation is used to verify functionality before implementation.
 
 Verification consists of:
 

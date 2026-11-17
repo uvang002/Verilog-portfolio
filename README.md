@@ -21,6 +21,7 @@ This portfolio uses the following tools:
 Recommended extensions:
 
 - Verilog-HDL/SystemVerilog
+- Makefile Tools
 
 ### Install OSS CAD Suite
 

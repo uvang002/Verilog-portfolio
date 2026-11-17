@@ -5,7 +5,10 @@ module not_gate_tb();
     reg a_tb;
     wire y_tb;
 
-    not_gate not_gate_tb (a_tb,y_tb);
+    not_gate dut (
+        .a(a_tb),
+        .y(y_tb)
+    );
 
     initial begin
 
@@ -16,7 +19,9 @@ module not_gate_tb();
         # 10 a_tb = 1;
         # 20 a_tb = 0;
 
+        #10;
+        $finish;
+
     end
 
-    
 endmodule

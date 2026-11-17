@@ -8,6 +8,9 @@ VCD = sim/wave.vcd
 
 all: run
 
+sim:
+	if not exist sim mkdir sim
+
 compile:
 	iverilog -g2012 -o $(OUT) $(SRC) $(TB)
 

@@ -5,7 +5,11 @@ module or_gate_tb();
     reg  a_tb, b_tb;
     wire y_tb;
 
-    or_gate or_gate_tb(a_tb,b_tb,y_tb);
+    or_gate dut(
+        .a(a_tb),
+        .b(b_tb),
+        .y(y_tb)
+    );
 
     initial begin
 
@@ -18,6 +22,9 @@ module or_gate_tb();
         #10 a_tb = 0;
         #10 b_tb = 1;
         #10 b_tb = 0;
+
+        #10;
+        $finish;
 
     end    
     

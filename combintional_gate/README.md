@@ -1,6 +1,6 @@
 # Verilog Portfolio
 
-This Verilog portfolio covers the fundamental of digital logic design concepts, simulation, synthesis, and FPGA development.
+This Verilog portfolio demonstrates the fundamentals of digital logic design, simulation, and synthesis using Verilog HDL.
 
 ## Toolchain
 
@@ -11,8 +11,8 @@ This portfolio uses the following tools:
     - Icarus Verilog (iverilog)
     - VVP Simulator (vvp)
     - GTKWave
-- GNU Make
-- Git Bash (optional)
+    - GNU Make (simulation automation)
+- Git (optional for version control and GitHub)
 
 ## Environment Setup
 
@@ -21,6 +21,7 @@ This portfolio uses the following tools:
 Recommended extensions:
 
 - Verilog-HDL/SystemVerilog
+- Makefile Tools
 
 ### Install OSS CAD Suite
 
@@ -35,7 +36,9 @@ where yosys
 where iverilog
 where vvp
 where gtkwave
+where make
 ```
+
 Expected output:
 
 ```text
@@ -43,13 +46,17 @@ Expected output:
 ...\oss-cad-suite\bin\iverilog.exe
 ...\oss-cad-suite\bin\vvp.exe
 ...\oss-cad-suite\bin\gtkwave.exe
+...\oss-cad-suite\bin\make.exe
 ```
-Verify version
+
+Verify the installed versions:
 
 ```cmd
 yosys -V
 iverilog -V
+vvp -V
 gtkwave --version
+make --version
 ```
 
 ### Install Git (optional)
@@ -64,9 +71,10 @@ git --version
 
 ```text
 project_name/
-├── constraints/
 ├── src/
+│   └── project_name.v
 ├── tb/
+│   └── project_name_tb.v
 ├── sim/
 ├── Makefile
 └── README.md
@@ -79,13 +87,55 @@ project_name/
 | src           | Verilog source code                |
 | tb            | Testbenches                        |
 | sim           | Generated simulation artifacts     |
-| constraints   | FPGA pin constraints               |
 | Makefile      | Build and simulation automation    |
+| README.md     | Project documentation              |
+
+### Standard Verilog Module Template
+```verilog
+module top_module (
+    input a,
+    output y
+);
+
+    assign y = a;
+
+endmodule
+```
+
+### Standard Testbench Template
+```verilog
+`timescale 1ps / 1ps
+
+module top_module_tb;
+    reg a_tb;
+    wire y_tb;
+
+    top_module dut (
+        .a(a_tb),
+        .y(y_tb)
+    );
+
+    initial begin
+        $dumpfile("sim/wave.vcd");
+        $dumpvars(0, top_module_tb);
+
+        a_tb = 0;
+        #10 a_tb = 1;
+        #10 a_tb = 0;
+
+        #10;
+        $finish;
+    end
+
+endmodule
+```
 
 ### Standard Makefile
 
+**Note:** Commands in a Makefile must be indented with a TAB character, not spaces. 
+**Reminder:** Change 'project_name' to the name of your project.
 ```make
-TOP = project_name
+TOP = project_name 
 
 SRC = src/$(TOP).v
 TB  = tb/$(TOP)_tb.v
@@ -95,7 +145,10 @@ VCD = sim/wave.vcd
 
 all: run
 
-compile:
+sim:
+	if not exist sim mkdir sim
+
+compile: sim
 	iverilog -g2012 -o $(OUT) $(SRC) $(TB)
 
 run: compile
@@ -110,9 +163,7 @@ clean:
 
 ### Build Artifacts
 
-The following generated files are excluded from version control:
-
-.gitignore
+The following generated files are excluded from version control using .gitignore:
 
 ```text
 sim/
@@ -120,18 +171,18 @@ sim/
 *.vvp
 *.vcd
 *.gtkw
-*.vscode/
+.vscode/
 ```
 
 ## Running Simulations
-
-Compile and run:
 
 Clean generated files:
 
 ```cmd
 make clean
 ```
+
+Compile and run:
 
 ```cmd
 make run
@@ -155,7 +206,7 @@ Verilog Source
     sim.out
       │
       ▼
-      vvp
+     vvp
       │
       ▼
    wave.vcd
@@ -164,19 +215,26 @@ Verilog Source
    GTKWave
 ```
 
-*/## Learning Objectives
+## Verification Approach
+
+All projects are verified using testbenches written in Verilog.
+Simulation is used to verify functionality before synthesis or FPGA implementation.
+
+Verification consists of:
+
+- Applying test vectors
+- Observing simulation results
+- Generating waveform files (.vcd)
+- Inspecting signals in GTKWave
+
+## Learning Objectives
 
 The projects in this portfolio demonstrate:
 
 - Combinational Logic
-- Multiplexers
-- Decoders and Encoders
-- Arithmetic Logic Units (ALUs)
-- Sequential Logic
-- Registers and Counters
-- Finite State Machines (FSMs)
-- FPGA Pin Constraints
+- Boolean Algebra
+- Logic Gates
+- Continuous Assignments
+- Testbench Development
+- Waveform Analysis
 - Simulation and Verification
-- Digital Design Best Practices
-
-/*

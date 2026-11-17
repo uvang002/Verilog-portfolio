@@ -59,7 +59,7 @@ gtkwave --version
 make --version
 ```
 
-### Install Git (optional)
+### Install Git (optional for version control and GitHub)
 
 Verify installation:
 
@@ -177,7 +177,7 @@ sim/
 
 ## Running Simulations
 
-Clean generated files:
+Clean previously generated sim files:
 
 ```cmd
 make clean
@@ -219,7 +219,7 @@ Verilog Source
 ## Verification Approach
 
 All projects are verified using testbenches written in Verilog.
-Simulation is used to verify functionality before synthesis or FPGA implementation.
+Simulation is used to verify functionality before implementation.
 
 Verification consists of:
 

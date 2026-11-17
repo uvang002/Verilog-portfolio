@@ -1,0 +1,136 @@
+=========================================================
+               GIT BASH & GIT CHEAT SHEET
+=========================================================
+
+NAVIGATION
+---------------------------------------------------------
+pwd                 Show current directory
+ls                  List files/folders
+ls -la              Show all files (including hidden)
+cd folder           Enter folder
+cd ..               Move up one directory
+cd ~                Go to home directory
+clear               Clear screen
+
+FILES & FOLDERS
+---------------------------------------------------------
+mkdir project       Create folder
+touch file.txt      Create file
+cp a.txt b.txt      Copy file
+mv old.txt new.txt  Rename/move file
+rm file.txt         Delete file
+rm -r folder        Delete folder recursively
+
+GIT SETUP
+---------------------------------------------------------
+git --version
+git config --global user.name "Your Name"
+git config --global user.email "you@email.com"
+git config --list
+
+NEW REPOSITORY
+---------------------------------------------------------
+mkdir myproject
+cd myproject
+git init
+
+CLONE EXISTING REPOSITORY
+---------------------------------------------------------
+git clone <repo-url>
+
+STATUS & HISTORY
+---------------------------------------------------------
+git status          Check repository status
+git log             View commit history
+git log --oneline   Compact history
+
+STAGING & COMMITTING
+---------------------------------------------------------
+git add file.txt    Stage one file
+git add .           Stage all changes
+
+git commit -m "message"
+
+REMOTE REPOSITORIES
+---------------------------------------------------------
+git remote -v
+
+git remote add origin <repo-url>
+
+PUSH & PULL
+---------------------------------------------------------
+git push -u origin main    First push
+git push                   Future pushes
+
+git pull origin main
+git pull
+
+BRANCHES
+---------------------------------------------------------
+git branch                 List branches
+
+git checkout -b feature
+git switch -c feature
+(Create and switch)
+
+git checkout feature
+git switch feature
+
+git merge feature
+(Merge into current branch)
+
+UNDO CHANGES
+---------------------------------------------------------
+git restore file.txt
+(Discard unstaged changes)
+
+git restore --staged file.txt
+(Unstage file)
+
+git reset --soft HEAD~1
+(Undo last commit, keep changes)
+
+STASH WORK
+---------------------------------------------------------
+git stash
+git stash list
+git stash pop
+
+GITHUB WORKFLOW (MOST IMPORTANT)
+---------------------------------------------------------
+git clone <repo-url>
+
+cd repo
+
+git status
+
+git add .
+
+git commit -m "Describe changes"
+
+git push
+
+TOP 10 COMMANDS TO MEMORIZE
+---------------------------------------------------------
+git clone <url>
+git status
+git add .
+git commit -m "message"
+git push
+git pull
+git log --oneline
+git branch
+git checkout -b branch-name
+git merge branch-name
+
+COMMON GITHUB EXAMPLE
+---------------------------------------------------------
+git add .
+
+git commit -m "Completed HDLBits exercises"
+
+git push
+
+=========================================================
+     REMEMBER: STATUS → ADD → COMMIT → PUSH
+=========================================================

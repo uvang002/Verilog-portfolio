@@ -1,16 +1,8 @@
-# Simulation output
 sim/
-
-# Icarus Verilog
 *.out
 *.vvp
-
-# Waveforms
 *.vcd
 *.fst
-
-# GTKWave
 *.gtkw
-
-# VS Code
+*.png
 .vscode/

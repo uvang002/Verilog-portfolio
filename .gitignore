@@ -4,5 +4,4 @@ sim/
 *.vcd
 *.fst
 *.gtkw
-*.png
 .vscode/

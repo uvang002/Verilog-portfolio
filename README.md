@@ -133,6 +133,7 @@ endmodule
 ### Standard Makefile
 
 **Note:** Commands in a Makefile must be indented with a TAB character, not spaces. 
+
 **Reminder:** Change 'project_name' to the name of your project.
 ```make
 TOP = project_name 

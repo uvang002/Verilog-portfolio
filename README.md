@@ -238,3 +238,18 @@ The projects in this portfolio demonstrate:
 - Testbench Development
 - Waveform Analysis
 - Simulation and Verification
+
+## Projects
+
+### Combinational Logic
+
+- [x] AND Gate
+- [x] OR Gate
+- [x] NOT Gate
+- [ ] NAND Gate
+- [ ] NOR Gate
+- [ ] XOR Gate
+- [ ] XNOR Gate
+- [ ] 2-to-1 Multiplexer
+- [ ] 4-to-1 Multiplexer
+- [ ] Decoder

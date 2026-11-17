@@ -29,7 +29,7 @@ The waveform below shows the AND gate output (`y`) transitioning high only when 
 
 [AND Gate Waveform]
 
-![alt text](<Screenshot 2026-11-16 223752.png>)
+![alt text](<AND_gate_wave.png>)
 
 
 ## Skills Demonstrated

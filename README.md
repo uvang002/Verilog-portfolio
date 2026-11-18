@@ -170,7 +170,11 @@ module top_module_tb;
     initial begin
         // Creates a VCD waveform file that can be viewed in GTKWave
         $dumpfile("sim/wave.vcd");
+<<<<<<< HEAD
         // Records all signals in the testbench. 
+=======
+        // Records all signals in the testbench
+>>>>>>> fbe8af677702c03380883b229965dfe5dc6a73f8
         $dumpvars(0, top_module_tb);
         // Test vectors
         a_tb = 0;

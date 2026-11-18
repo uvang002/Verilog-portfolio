@@ -26,7 +26,7 @@ The design was verified using a Verilog testbench and simulated with Icarus Veri
 
 ## Simulation Results
 
-The waveform below shows the XNOR gate output `y` transitioning high only when both inputs `a` and `b` are high or low. When inputs `a` and `b` differ, `y` is low. 
+The waveform below shows the XNOR gate output `y` transitioning high when inputs `a` and `b` have the same value. When inputs `a` and `b` differ, `y` is low.
 
 XNOR Gate Waveform
 

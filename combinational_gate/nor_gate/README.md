@@ -26,7 +26,7 @@ The design was verified using a Verilog testbench and simulated with Icarus Veri
 
 ## Simulation Results
 
-The waveform below shows the NOR gate output `y` transitioning high only when both inputs, `a` and `b`, are low. When one or both inputs, `a` or `b`, are high, `y` is low. 
+The waveform below shows the NOR gate output `y` transitioning high only when both inputs, `a` and `b`, are low. When one or both inputs, `a` or `b`, are high, `y` is low.
 
 NOR Gate Waveform
 

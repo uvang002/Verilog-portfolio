@@ -4,7 +4,7 @@ This Verilog portfolio demonstrates the fundamentals of digital logic design, si
 
 I created this repository to document my journey learning HDL concepts, digital logic design, and the workflow necessary to successfully develop and test digital circuit designs. I want to create a practical development environment for compiling, simulating, and verifying digital designs using the OSS CAD Suite.
 
-In addition, I hope that my journey will be a great resource for other electrical engineering students who are starting their journey with HDL and want to avoid spending hours debugging toolchain and environment setup issues.
+In addition, I hope that my journey will be a useful resource for other electrical engineering students who are beginning to learn HDL and want to avoid spending hours debugging toolchain and environment setup issues.
 
 ## Toolchain
 
@@ -13,14 +13,14 @@ This portfolio uses the following tools:
 - Visual Studio Code 
 - OSS CAD Suite
     - Icarus Verilog (iverilog)
-    - VVP Simulator (vvp)
+    - vvp (Icarus Verilog runtime)
     - GTKWave
     - GNU Make (simulation automation)
 - Git (optional for version control and GitHub)
 
 ## Environment Setup
 
-This was one of the most challenging parts of getting started. I found that without properly loading the OSS CAD Suite environment in the VS Code terminal, the application would not recognize the tools needed to compile, simulate, and implement Verilog HDL.
+This was one of the most challenging parts of getting started. I found that without properly loading the OSS CAD Suite environment in the VS Code terminal, the terminal would not recognize the tools needed to compile and simulate Verilog HDL.
 
 ### Install VS Code
 
@@ -33,9 +33,9 @@ Recommended extensions:
 
 Download and extract the OSS CAD Suite to the desired location on your PC.
 
-After extracting it, configure the VS Code terminal before verifying the tools in the OSS CAD Suite.
+After extracting it, configure the VS Code terminal before verifying the OSS CAD Suite tools.
 
-Adding this profile will automatically load the OSS CAD Suite environment whenever a new terminal is opened in VS Code.
+This profile automatically loads the OSS CAD Suite environment whenever a new terminal is opened in VS Code.
 
 Open the VS Code Command Palette:
 
@@ -70,7 +70,7 @@ Add the following configuration:
 
 Verify the installation and location:
 
-Open Command Prompt in VS Code Terminal and run:
+Open a Command Prompt terminal in VS Code and run:
 
 ```cmd
 where yosys
@@ -89,7 +89,7 @@ Expected output:
 ...\oss-cad-suite\bin\gtkwave.exe
 ...\oss-cad-suite\bin\make.exe
 ```
-**Note:** If there is an error when running the command, check that the path to the OSS CAD Suite is correct in VS Code Command Palette.
+**Note:** If an error occurs when running one of these commands, check that the path to the OSS CAD Suite is correct in the VS Code Command Palette.
 
 Verify the installed versions:
 
@@ -101,9 +101,9 @@ gtkwave --version
 make --version
 ```
 
-### Install Git (optional for version control and GitHub) 
+### Install Git (optional for version control and GitHub)
 
-Git is a great tool for pushing projects to GitHub, but it is not used to compile or simulate HDL.
+Git is useful for tracking changes and pushing projects to GitHub, but it is not used to compile or simulate HDL.
 
 Verify installation:
 
@@ -115,7 +115,7 @@ git --version
 
 **Important:** `src` and `tb` are two separate folders inside the project folder. Save Verilog source code in the `src` folder and the testbench in the `tb` folder.
 
-**Note:** Every project should have it's own project folder. 
+**Note:** Every project should have its own project folder.
 
 ```text
 project_name/
@@ -170,11 +170,7 @@ module top_module_tb;
     initial begin
         // Creates a VCD waveform file that can be viewed in GTKWave
         $dumpfile("sim/wave.vcd");
-<<<<<<< HEAD
-        // Records all signals in the testbench. 
-=======
         // Records all signals in the testbench
->>>>>>> fbe8af677702c03380883b229965dfe5dc6a73f8
         $dumpvars(0, top_module_tb);
         // Test vectors
         a_tb = 0;
@@ -196,7 +192,7 @@ endmodule
 
 **Reminder:** Change `project_name` to the name of your project.
 ```make
-# Name of project's top module
+# Name of the project's top module
 TOP = project_name 
 
 # Source file
@@ -208,7 +204,7 @@ TB  = tb/$(TOP)_tb.v
 # Compiled simulation output
 OUT = sim/sim.out
 
-# GTKwave input file
+# GTKWave input file
 VCD = sim/wave.vcd
 
 all: run
@@ -221,7 +217,7 @@ sim:
 compile: sim
 	iverilog -g2012 -o $(OUT) $(SRC) $(TB)
 
-# Run Simulation
+# Run simulation
 run: compile
 	vvp $(OUT)
 
@@ -236,7 +232,7 @@ clean:
 
 ## Running Simulations
 
-**Note:** If an error occurs when running `make run`, check project folder for Makefile and that `src` and `tb` are separate folders in the project folder.
+**Note:** If an error occurs when running `make run`, check that the project folder contains the Makefile and that `src` and `tb` are separate folders.
 
 Clean previously generated sim files:
 
@@ -250,7 +246,7 @@ Compile and run:
 make run
 ```
 
-Open waveforms:
+Open the waveform:
 
 ```cmd
 make wave
@@ -278,7 +274,7 @@ Verilog Source
 ```
 
 ## Build Artifacts
-This step is optional and only used when pushing the project to GitHub with Git.
+Generated simulation artifacts are not tracked in Git.
 
 The following generated files are excluded from version control using `.gitignore`:
 
@@ -293,8 +289,8 @@ sim/
 
 ## Verification Approach
 
-All projects are verified using testbenches written in Verilog.
-Simulation is used to verify functionality before implementation.
+Each completed project is verified using a testbench written in Verilog.
+Simulation is used to verify functionality before hardware implementation.
 
 Verification consists of:
 

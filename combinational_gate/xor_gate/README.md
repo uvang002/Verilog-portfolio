@@ -26,7 +26,7 @@ The design was verified using a Verilog testbench and simulated with Icarus Veri
 
 ## Simulation Results
 
-The waveform below shows the XOR gate output `y` transitioning high when exactly one of the inputs, `a` or `b`, is high. When both inputs are equal—both high or both low—`y` is low. 
+The waveform below shows the XOR gate output `y` transitioning high when exactly one of the inputs, `a` or `b`, is high. When both inputs are equal—both high or both low—`y` is low.
 
 XOR Gate Waveform
 

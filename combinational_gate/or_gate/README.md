@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates basic combinational logic using the OR gate operator in Verilog.
+This project demonstrates basic combinational logic by using Verilog's bitwise OR operator to implement a two-input OR gate.
 
 ## Truth Table
 

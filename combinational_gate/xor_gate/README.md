@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates basic combinational logic using the XOR gate operator in Verilog.
+This project demonstrates basic combinational logic by using Verilog's bitwise XOR operator to implement a two-input XOR gate.
 
 ## Truth Table
 

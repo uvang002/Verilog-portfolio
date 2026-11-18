@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates basic combinational logic using the NOT gate operator in Verilog.
+This project demonstrates basic combinational logic by using Verilog's bitwise complement operator to implement a NOT gate.
 
 ## Truth Table
 

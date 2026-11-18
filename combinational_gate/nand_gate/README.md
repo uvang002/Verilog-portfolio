@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates basic combinational logic using the NAND gate operator in Verilog.
+This project demonstrates basic combinational logic by using Verilog's bitwise AND operator and complement operator to implement a two-input NAND gate.
 
 ## Truth Table
 

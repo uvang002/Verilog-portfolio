@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates basic combinational logic using the AND gate operator in Verilog.
+This project demonstrates basic combinational logic by using Verilog's bitwise AND operator to implement a two-input AND gate.
 
 ## Truth Table
 

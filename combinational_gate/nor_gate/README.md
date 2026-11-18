@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates basic combinational logic using the NOR gate operator in Verilog.
+This project demonstrates basic combinational logic by using Verilog's bitwise OR operator and complement operator to implement a two-input NOR gate.
 
 ## Truth Table
 

@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates basic combinational logic using the XNOR gate operator in Verilog.
+This project demonstrates basic combinational logic by using Verilog's bitwise XOR operator and complement operator to implement a two-input XNOR gate.
 
 ## Truth Table
 

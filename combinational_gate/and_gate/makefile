@@ -11,11 +11,11 @@ all: run
 sim:
 	if not exist sim mkdir sim
 
-compile:
+compile: sim
 	iverilog -g2012 -o $(OUT) $(SRC) $(TB)
 
 run: compile
-	-vvp $(OUT)
+	vvp $(OUT)
 
 wave:
 	gtkwave $(VCD)

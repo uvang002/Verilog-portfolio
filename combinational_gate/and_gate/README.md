@@ -25,11 +25,11 @@ The design was verified using a Verilog testbench and simulated with Icarus Veri
 
 ## Simulation Results
 
-The waveform below shows the AND gate output (`y`) transitioning high only when both inputs (`a` and `b`) are high.
+The waveform below shows the AND gate output `y` transitioning high only when both inputs `a` and `b` are high.
 
 AND Gate Waveform
 
-![alt text](<AND_gate_wave.png>)
+![AND Gate Waveform](<and_gate_wave.png>)
 
 
 ## Skills Demonstrated

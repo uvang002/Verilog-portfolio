@@ -25,11 +25,11 @@ The design was verified using a Verilog testbench and simulated with Icarus Veri
 
 ## Simulation Results
 
-The waveform below shows the OR gate output (`y`) transitioning high when one or both inputs (`a` and `b`) are high.
+The waveform below shows the OR gate output `y` transitioning high when one or both inputs `a` and `b` are high.
 
 OR Gate Waveform
 
-![alt text](<OR_gate_wave.png>)
+![OR Gate Waveform](<or_gate_wave.png>)
 
 ## Skills Demonstrated
 

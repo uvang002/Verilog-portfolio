@@ -320,12 +320,12 @@ The projects in this portfolio demonstrate:
 ### Combinational Logic
 
 - [x] AND Gate
-- [x] OR Gate
-- [x] NOT Gate
 - [x] NAND Gate
 - [x] NOR Gate
-- [x] XOR Gate
+- [x] NOT Gate
+- [x] OR Gate
 - [x] XNOR Gate
+- [x] XOR Gate
 - [ ] 2-to-1 Multiplexer
 - [ ] 4-to-1 Multiplexer
 - [ ] Decoder

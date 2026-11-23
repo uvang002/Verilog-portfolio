@@ -1,0 +1,25 @@
+`timescale 1ps / 1ps
+
+module module_template_tb;
+    reg a_tb;
+    wire y_tb;
+
+    module_template dut (
+        .a(a_tb),
+        .y(y_tb)
+    );
+
+    initial begin
+
+        $dumpfile("sim/wave.vcd");
+        $dumpvars(0, module_template_tb);
+
+        a_tb = 0;
+        #10 a_tb = 1;
+        #10 a_tb = 0;
+
+        #10;
+        $finish;
+    end
+
+endmodule

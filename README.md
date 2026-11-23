@@ -103,7 +103,7 @@ make --version
 
 ### Install Git (optional for version control and GitHub)
 
-Git is useful for tracking changes and pushing projects to GitHub, but it is not used to compile or simulate HDL.
+Git is useful for tracking changes and pushing projects to GitHub, but it is not used to compile or simulate HDL. 
 
 Verify installation:
 
@@ -113,9 +113,9 @@ git --version
 
 ## Project Structure
 
-**Important:** `src` and `tb` are two separate folders inside the project folder. Save Verilog source code in the `src` folder and the testbench in the `tb` folder.
+**Note:** Every project should have its own dedicated folder.
 
-**Note:** Every project should have its own project folder.
+**Important:** `src` and `tb` are two separate folders inside the project folder. Save Verilog source code in the `src` folder and the testbench in the `tb` folder.
 
 ```text
 project_name/
@@ -230,7 +230,7 @@ clean:
 
 ## Running Simulations
 
-**Note:** If an error occurs when running `make run`, check that the project folder contains the Makefile and that `src` and `tb` are separate folders.
+**Note:** If an error occurs when running `make run`, check to see if the project folder contains the Makefile and that `src` and `tb` are separate folders.
 
 Clean previously generated sim files:
 
@@ -288,7 +288,7 @@ sim/
 ## Verification Approach
 
 Each completed project is verified using a testbench written in Verilog.
-Simulation is used to verify functionality before hardware implementation.
+Simulation is used to verify functionality.
 
 Verification consists of:
 
@@ -302,9 +302,6 @@ Verification consists of:
 The projects in this portfolio demonstrate:
 
 - Combinational Logic
-- Boolean Algebra
-- Logic Gates
-- Continuous Assignments
 - Testbench Development
 - Waveform Analysis
 - Simulation and Verification

@@ -6,6 +6,59 @@ I created this repository to document my journey learning HDL concepts, digital 
 
 In addition, I hope that my journey will be a useful resource for other electrical engineering students who are beginning to learn HDL and want to avoid spending hours debugging toolchain and environment setup issues.
 
+## Repository Reorganization
+
+This repository has been reorganized to improve consistency, readability, and the overall learning experience.
+
+When I first launched this repository, it primarily served as a collection of logic gate projects and did not provide a clear learning path for students. As the repository grew, I redesigned it from a simple gate collection into a learning-oriented resource.
+
+The new layout follows the logical progression I learned in my Digital Logic Fundamentals course, making it easier for students to build foundational knowledge step by step. Instead of organizing projects alphabetically, the repository now presents concepts in a structured learning sequence that more closely reflects how digital logic is typically taught.
+
+Each project follows a consistent structure that includes:
+
+- README documentation
+- Verilog source files (`src/`)
+- Testbenches (`tb/`)
+- Build automation (`makefile`)
+- Waveform verification results
+
+Although GitHub displays files and folders alphabetically, every project contains the same core components to maintain consistency throughout the repository.
+
+This portfolio also includes documentation outlining how I configured my development environment, including Visual Studio Code and the OSS CAD Suite. 
+
+For setup instructions:
+- [Environment Setup](docs/01_environment_setup.md)
+- [Project Structure](docs/02_project_structure.md) 
+- [Makefile](docs/03_makefile_setup.md) 
+- [Simulation](docs/04_simulation_setup.md)
+
+## Learning Objectives
+
+The projects in this portfolio demonstrate:
+
+- Digital Logic Design
+- Verilog HDL Development
+- Testbench Development
+- Simulation and Verification
+- Waveform Analysis and Debugging
+- Engineering Documentation
+- Git and Version Control Workflows
+
+## Projects
+
+### Combinational Logic
+
+- [x] NOT Gate
+- [x] AND Gate
+- [x] OR Gate
+- [x] NAND Gate
+- [x] NOR Gate
+- [x] XOR Gate
+- [x] XNOR Gate
+- [ ] 2-to-1 Multiplexer
+- [ ] 4-to-1 Multiplexer
+- [ ] Decoder
+
 ## Toolchain
 
 This portfolio uses the following tools:
@@ -18,277 +71,11 @@ This portfolio uses the following tools:
     - GNU Make (simulation automation)
 - Git (optional for version control and GitHub)
 
-## Environment Setup
-
-This was one of the most challenging parts of getting started. I found that without properly loading the OSS CAD Suite environment in the VS Code terminal, the terminal would not recognize the tools needed to compile and simulate Verilog HDL.
-
-### Install VS Code
-
-Recommended extensions:
-
-- Verilog-HDL/SystemVerilog
-- Makefile Tools
-
-### Install OSS CAD Suite
-
-Download and extract the OSS CAD Suite to the desired location on your PC.
-
-After extracting it, configure the VS Code terminal before verifying the OSS CAD Suite tools.
-
-This profile automatically loads the OSS CAD Suite environment whenever a new terminal is opened in VS Code.
-
-Open the VS Code Command Palette:
-
-```text
-Ctrl + Shift + P
-```
-
-Search for:
-
-```text
-Preferences: Open User Settings (JSON)
-```
-
-Add the following configuration:
-
-**Reminder:** Change `<path_to_startup_script>` to the location of the OSS CAD Suite on your PC.
-
-```json
-{
-    "terminal.integrated.profiles.windows": {
-        "OSS CAD Suite": {
-            "path": "C:\\Windows\\System32\\cmd.exe",
-            "args": [
-                "/k",
-                "<path_to_startup_script>"
-            ]
-        }
-    },
-    "terminal.integrated.defaultProfile.windows": "OSS CAD Suite"
-}
-```
-
-Verify the installation and location:
-
-Open a Command Prompt terminal in VS Code and run:
-
-```cmd
-where yosys
-where iverilog
-where vvp
-where gtkwave
-where make
-```
-
-Expected output:
-
-```text
-...\oss-cad-suite\bin\yosys.exe
-...\oss-cad-suite\bin\iverilog.exe
-...\oss-cad-suite\bin\vvp.exe
-...\oss-cad-suite\bin\gtkwave.exe
-...\oss-cad-suite\bin\make.exe
-```
-**Note:** If an error occurs when running one of these commands, check that the path to the OSS CAD Suite is correct in the VS Code Command Palette.
-
-Verify the installed versions:
-
-```cmd
-yosys -V
-iverilog -V
-vvp -V
-gtkwave --version
-make --version
-```
-
-### Install Git (optional for version control and GitHub)
-
-Git is useful for tracking changes and pushing projects to GitHub, but it is not used to compile or simulate HDL. 
-
-Verify installation:
-
-```bash
-git --version
-```
-
-## Project Structure
-
-**Note:** Every project should have its own dedicated folder.
-
-**Important:** `src` and `tb` are two separate folders inside the project folder. Save Verilog source code in the `src` folder and the testbench in the `tb` folder.
-
-```text
-project_name/
-├── src/
-│   └── project_name.v
-├── tb/
-│   └── project_name_tb.v
-├── sim/
-├── Makefile
-└── README.md
-```
-
-### Directory Description
-
-|   Directory   |              Purpose               |
-|---------------|------------------------------------|
-| src           | Verilog source code                |
-| tb            | Testbenches                        |
-| sim           | Generated simulation artifacts     |
-| Makefile      | Build and simulation automation    |
-| README.md     | Project documentation              |
-
-### Standard Verilog Module Template
-```verilog
-module top_module (
-    input a,
-    output y
-);
-
-    assign y = a;
-
-endmodule
-```
-
-### Standard Testbench Template
-
-**Reminder:** Change top_module_tb and top_module to project name.
-
-```verilog
-`timescale 1ps / 1ps
-
-module top_module_tb;
-    reg a_tb;
-    wire y_tb;
-
-    // Device Under Test (DUT)
-    top_module dut (
-        .a(a_tb),
-        .y(y_tb)
-    );
-
-    initial begin
-        // Creates a VCD waveform file that can be viewed in GTKWave
-        $dumpfile("sim/wave.vcd");
-        // Records all signals in the testbench
-        $dumpvars(0, top_module_tb);
-        // Test vectors
-        a_tb = 0;
-        // Delays the input signal by 10 ps
-        #10 a_tb = 1;
-        #10 a_tb = 0;
-
-        #10;
-        $finish;
-    end
-
-endmodule
-```
-
-### Standard Makefile
-**Important:** Save the Makefile inside the project folder.
-
-**Note:** Commands in a Makefile must be indented with a TAB character, not spaces.
-
-**Reminder:** Change `project_name` to the name of your project.
-```make
-# Name of the project's top module
-TOP = project_name 
-
-# Source file
-SRC = src/$(TOP).v
-# Testbench source file
-TB  = tb/$(TOP)_tb.v
-
-# Compiled simulation output
-OUT = sim/sim.out
-# GTKWave input file
-VCD = sim/wave.vcd
-
-all: run
-
-# Create simulation folder for OUT and VCD file
-sim:
-	if not exist sim mkdir sim
-
-# Compile the source and testbench
-compile: sim
-	iverilog -g2012 -o $(OUT) $(SRC) $(TB)
-
-# Run simulation
-run: compile
-	vvp $(OUT)
-
-# Open waveform viewer
-wave:
-	gtkwave $(VCD)
-
-# Clean sim folder of previous simulation files
-clean:
-	if exist sim del /Q sim\*
-```
-
-## Running Simulations
-
-**Note:** If an error occurs when running `make run`, check to see if the project folder contains the Makefile and that `src` and `tb` are separate folders.
-
-Clean previously generated sim files:
-
-```cmd
-make clean
-```
-
-Compile and run:
-
-```cmd
-make run
-```
-
-Open the waveform:
-
-```cmd
-make wave
-```
-
-## Simulation Workflow
-
-```text
-Verilog Source
-      │
-      ▼
-   iverilog
-      │
-      ▼
-    sim.out
-      │
-      ▼
-     vvp
-      │
-      ▼
-   wave.vcd
-      │
-      ▼
-   GTKWave
-```
-
-## Build Artifacts
-Generated simulation artifacts are not tracked in Git.
-
-The following generated files are excluded from version control using `.gitignore`:
-
-```text
-sim/
-*.out
-*.vvp
-*.vcd
-*.gtkw
-.vscode/
-```
-
 ## Verification Approach
 
-Each completed project is verified using a testbench written in Verilog.
-Simulation is used to verify functionality.
+Each completed project is verified using a Verilog testbench and simulated using the OSS CAD Suite.
+
+Waveforms are analyzed using GTKWave to verify functionality and confirm correct operation.
 
 Verification consists of:
 
@@ -297,26 +84,18 @@ Verification consists of:
 - Generating waveform files (.vcd)
 - Inspecting signals in GTKWave
 
-## Learning Objectives
+## Reporting Issues
 
-The projects in this portfolio demonstrate:
+If you spot an issue or have a suggestion, please let me know by opening an Issue or starting a Discussion.
 
-- Combinational Logic
-- Testbench Development
-- Waveform Analysis
-- Simulation and Verification
+This repository is part of my learning journey, and mistakes are inevitable. Sharing problems, solutions, and different perspectives helps everyone learn.
 
-## Projects
+Feel free to use the SBAR template below to document issues, troubleshooting steps, and lessons learned. I'll do my best to review and respond when I can.
 
-### Combinational Logic
+See the full [SBAR Template](docs/sbar_template.md)
 
-- [x] AND Gate
-- [x] NAND Gate
-- [x] NOR Gate
-- [x] NOT Gate
-- [x] OR Gate
-- [x] XNOR Gate
-- [x] XOR Gate
-- [ ] 2-to-1 Multiplexer
-- [ ] 4-to-1 Multiplexer
-- [ ] Decoder
+## AI Assistance
+
+I use AI tools such as Microsoft Copilot as an aid for documentation, troubleshooting, and workflow organization.
+
+Any AI-generated suggestions included in this repository have been reviewed, tested, and verified as part of my learning process.

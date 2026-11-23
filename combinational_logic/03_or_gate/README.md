@@ -30,7 +30,7 @@ The waveform below shows the OR gate output `y` transitioning high when one or b
 
 OR Gate Waveform
 
-![OR Gate Waveform](<OR_gate_wave.png>)
+![OR Gate Waveform](<or_gate_wave.png>)
 
 ## Skills Demonstrated
 

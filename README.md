@@ -197,13 +197,11 @@ TOP = project_name
 
 # Source file
 SRC = src/$(TOP).v
-
 # Testbench source file
 TB  = tb/$(TOP)_tb.v
 
 # Compiled simulation output
 OUT = sim/sim.out
-
 # GTKWave input file
 VCD = sim/wave.vcd
 

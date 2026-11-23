@@ -5,3 +5,7 @@ sim/
 *.fst
 *.gtkw
 .vscode/
+mydocs_don't push/
+profile/
+desktop.ini
+Thumbs.db

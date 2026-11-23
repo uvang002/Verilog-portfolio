@@ -2,7 +2,7 @@
 
 ## Description
 
-The goal of this project is to demonstrate basic combinational logic by using Verilog's bitwise OR operator (`|`) to implement a two-input OR gate.
+The goal of this project is to demonstrate basic combinational logic by using Verilog's bitwise OR operator (`|`) to implement a two-input OR gate and verify its behavior through simulation.
 
 ## Truth Table
 

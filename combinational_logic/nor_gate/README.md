@@ -2,7 +2,7 @@
 
 ## Description
 
-The goal of this project is to demonstrate basic combinational logic by combining Verilog's bitwise OR `|` operator and complement operator `~` to implement a two-input NOR gate.
+The goal of this project is to demonstrate basic combinational logic by combining Verilog's bitwise OR operator (`|`) and complement operator (`~`) to implement a two-input NOR gate and verify its behavior through simulation.
 
 ## Truth Table
 

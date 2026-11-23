@@ -2,7 +2,7 @@
 
 ## Description
 
-The goal of this project is to demonstrate basic combinational logic by using Verilog's bitwise complement (`~`) operator to implement a NOT gate.
+The goal of this project is to demonstrate basic combinational logic by using Verilog's bitwise complement (`~`) operator to implement a NOT gate and verify its behavior through simulation.
 
 ## Truth Table
 

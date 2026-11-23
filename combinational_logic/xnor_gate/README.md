@@ -2,7 +2,7 @@
 
 ## Description
 
-The goal of this project is to demonstrate basic combinational logic by combining Verilog's bitwise XOR (`^`) operator and bitwise complement (`~`) operator to implement a two-input XNOR gate.
+The goal of this project is to demonstrate basic combinational logic by combining Verilog's bitwise XOR (`^`) operator and bitwise complement (`~`) operator to implement a two-input XNOR gate and verify its behavior through simulation.
 
 ## Truth Table
 

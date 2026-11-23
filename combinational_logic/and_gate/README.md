@@ -2,7 +2,7 @@
 
 ## Description
 
-The goal of this project is to demonstrate basic combinational logic by using Verilog's bitwise AND operator (`&`) to implement a two-input AND gate and verify its behavior through simulation.
+The goal of this project is to demonstrate basic combinational logic by using Verilog's bitwise AND operator (`&`) to implement a two-input AND gate. The design is verified through simulation.
 
 ## Truth Table
 
@@ -25,7 +25,7 @@ I verified the Verilog implementation using a testbench, compiled the design wit
 
 ## Simulation Results
 
-The waveform below shows the AND gate output (`y`) transitioning high only when both inputs (`a` and `b`) are high.
+The waveform below shows the AND gate output `y` transitioning high only when both inputs `a` and `b` are high.
 
 AND Gate Waveform
 

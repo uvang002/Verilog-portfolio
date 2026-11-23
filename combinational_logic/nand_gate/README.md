@@ -2,7 +2,7 @@
 
 ## Description
 
-The goal of this project is to demonstrate basic combinational logic by combining Verilog's bitwise AND operator (`&`) and complement operator (`~`) to implement a two-input NAND gate and verify its behavior through simulation.
+The goal of this project is to demonstrate basic combinational logic by combining Verilog's bitwise AND (`&`) operator and bitwise complement (`~`) operator to implement a two-input NAND gate and verify its behavior through simulation.
 
 ## Truth Table
 
@@ -25,7 +25,7 @@ I verified the Verilog implementation using a testbench, compiled the design wit
 
 ## Simulation Results
 
-The waveform below shows the NAND gate output (`y`) remaining high whenever at least one input (`a` or `b`) is low. When both inputs are high, the output transitions low.
+The waveform below shows the NAND gate output `y` remaining high whenever at least one input `a` or `b` is low. When both inputs are high, the output transitions low.
 
 NAND Gate Waveform
 

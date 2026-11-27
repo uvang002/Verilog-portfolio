@@ -1,3 +1,7 @@
+Generated simulation artifacts are not tracked in Git.
+
+The following generated files are excluded from version control.
+
 sim/
 *.out
 *.vvp

@@ -90,7 +90,7 @@ If you spot an issue or have a suggestion, please let me know by opening an Issu
 
 This repository is part of my learning journey, and mistakes are inevitable. Sharing problems, solutions, and different perspectives helps everyone learn.
 
-Feel free to use the SBAR template below to document issues, troubleshooting steps, and lessons learned. I'll do my best to review and respond when I can.
+Feel free to use my personal SBAR template below to document issues, troubleshooting steps, and lessons learned. I'll do my best to review and respond when I can. Learn more about why [SBAR works for me](docs/structured_problem_solving.md)
 
 See the full [SBAR Template](docs/sbar_template.md)
 
